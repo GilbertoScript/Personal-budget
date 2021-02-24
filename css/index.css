@@ -1,0 +1,12 @@
+nav.navbar {
+	padding-bottom: 150px;
+}
+
+.container #registro {
+	margin-top: -150px;
+}
+
+.container #registro h1 {
+	color: white;
+	font-weight: 300;
+}

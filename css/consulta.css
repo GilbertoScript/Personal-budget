@@ -1,0 +1,12 @@
+nav.navbar {
+	padding-bottom: 150px;
+}
+
+.container #consulta {
+	margin-top: -150px;
+}
+
+#consulta {
+	color: white;
+	font-weight: 300;
+}
