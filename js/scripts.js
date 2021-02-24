@@ -9,6 +9,34 @@ class Despesa {
 	}
 }
 
+// Criação da classe Bd - Banco de dados - LocalStorage
+class Bd {
+	constructor() {
+		let id = localStorage.getItem('id')
+
+		if(id === null) {
+			localStorage.setItem('id', 0)
+		}
+	}	
+
+	// Criação da função que irá verificar se existe algum id em localStorage
+	getProximoId() {
+		let proximoId = localStorage.getItem('id')
+		return parseInt(proximoId) +1
+	}
+
+	// Criação da função que irá armazenar os dados de despesa em local storage
+	gravar(d) {
+		let id = this.getProximoId()
+		localStorage.setItem('id', JSON.stringify(d))
+
+		localStorage.setItem('id', id)
+	}
+}
+
+// Instância da class Bd
+let bd = new Bd()
+
 // Função ao ser disparada quando o botão para cadastrar despesa for clicado
 function cadastrarDespesa() {
 	// Atribuição dos elementos html à variáveis
@@ -31,10 +59,5 @@ function cadastrarDespesa() {
 	)
 	
 	// Armazenando os dados de despesa em local storage
-	gravar(despesa)
-}
-
-// Criando a função que irá armazenar os dados de despesa em local storage
-function gravar(d) {
-	localStorage.setItem('despesa', JSON.stringify(d))
+	bd.gravar(despesa)
 }
