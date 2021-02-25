@@ -71,9 +71,13 @@ function cadastrarDespesa() {
 	// Armazenando os dados de despesa em local storage
 	if(despesa.validarDados()) {
 		bd.gravar(despesa)
+
+		// Dialog de sucesso
+		$('#sucessoGravacao').modal('show')
 			
 	} else {
-		alert('Preencha todos os campos.')
+		// Dialog de erro
+		$('#erroGravacao').modal('show')
 	}
 	
 }
