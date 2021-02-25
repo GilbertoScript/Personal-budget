@@ -22,13 +22,13 @@ class Bd {
 	// Criação da função que irá verificar se existe algum id em localStorage
 	getProximoId() {
 		let proximoId = localStorage.getItem('id')
-		return parseInt(proximoId) +1
+		return parseInt(proximoId) + 1
 	}
 
 	// Criação da função que irá armazenar os dados de despesa em local storage
 	gravar(d) {
 		let id = this.getProximoId()
-		localStorage.setItem('id', JSON.stringify(d))
+		localStorage.setItem(id, JSON.stringify(d))
 
 		localStorage.setItem('id', id)
 	}
