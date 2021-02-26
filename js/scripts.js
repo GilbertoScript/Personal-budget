@@ -109,6 +109,14 @@ function cadastrarDespesa() {
 		// Dialog de sucesso
 		$('#modalRegistraDespesa').modal('show')
 
+		// Limpar campos
+		ano.value = ''
+		mes. value = ''
+		dia.value = ''
+		tipo.value = ''
+		descricao.value = ''
+		valor.value = ''
+
 	} else {
 
 		// Atribuindo elementos ao modal de erro
