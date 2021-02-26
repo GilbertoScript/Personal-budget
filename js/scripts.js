@@ -29,18 +29,34 @@ class Bd {
 		}
 	}	
 
-	// Criação da função que irá verificar se existe algum id em localStorage
+	// Criação da função/método que irá verificar se existe algum id em localStorage
 	getProximoId() {
 		let proximoId = localStorage.getItem('id')
 		return parseInt(proximoId) + 1
 	}
 
-	// Criação da função que irá armazenar os dados de despesa em local storage
+	// Criação da função/método que irá armazenar os dados de despesa em local storage
 	gravar(d) {
 		let id = this.getProximoId()
 		localStorage.setItem(id, JSON.stringify(d))
 
 		localStorage.setItem('id', id)
+	}
+
+	// Criação do método que irá recuperar os Registros
+	recuperarTodosRegistros() {
+		// Array de despesas
+		let despesas = []
+
+		let id = localStorage.getItem('id')
+
+		// laço de repetição que irá recuperar todas as despesas contidas dentro do localStorage
+		for(let i = 1; i <= id; i++) {
+
+			// Recuperar as despesas, e transformar a notação JSON, em objeto literal
+			let despesa = JSON.parse(localStorage.getItem(i))
+			console.log(despesa)
+		}
 	}
 }
 
@@ -96,4 +112,8 @@ function cadastrarDespesa() {
 
 	}
 	
+}
+
+function carregaListaDespesa() {
+	bd.recuperarTodosRegistros()
 }
