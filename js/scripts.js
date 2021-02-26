@@ -126,9 +126,52 @@ function cadastrarDespesa() {
 }
 
 function carregaListaDespesa() {
+	// Criando um array
 	let despesas = []
 
+	// Este array recebe um array de objetos, que está sendo pego do bd.
 	despesas = bd.recuperarTodosRegistros()
 
-	console.log(despesas)
+	// Selecionando o elemento tbody da tabela
+	let listaDespesa = document.querySelector('#listaDespesas')
+
+	// Percorrendo o array dispesas, listando os arrays de forma dinâmica
+	despesas.forEach((d) => {
+
+		// Criando a linha(tr), do tbody
+		let linha = listaDespesa.insertRow()
+
+		// Criando as colunas(td), do tr
+		linha.insertCell(0).innerHTML = `${d.dia} / ${d.mes} / ${d.ano}`
+
+		// Ajustar o tipo
+		switch(d.tipo) {
+			case '1': d.tipo = 'Alimentação'
+				break
+			case '2': d.tipo = 'Educação'
+				break
+			case '3': d.tipo = 'Lazer'
+				break
+			case '4': d.tipo = 'Saúde'
+				break
+			case '5': d.tipo = 'Esporte'
+				break
+		}
+
+		linha.insertCell(1).innerHTML = d.tipo
+		linha.insertCell(2).innerHTML = d.descricao
+		linha.insertCell(3).innerHTML = d.valor
+	})
 }
+
+
+/*
+
+<tr>
+    0 = <td>25/03/2021</td>
+    1 = <td>Lazer</td>
+    2 = <td>Cinema</td>
+    3 = <td>300,00</td>
+</tr>
+
+*/
