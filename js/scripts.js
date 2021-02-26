@@ -55,8 +55,19 @@ class Bd {
 
 			// Recuperar as despesas, e transformar a notação JSON, em objeto literal
 			let despesa = JSON.parse(localStorage.getItem(i))
-			console.log(despesa)
+
+			// Verificar se existem índices que foram pulados ou removidos
+			// Se sim, pular esses índices
+			if(despesa == null) {
+				continue
+
+			}
+
+			despesas.push(despesa)
+
 		}
+
+		return despesas
 	}
 }
 
@@ -115,5 +126,9 @@ function cadastrarDespesa() {
 }
 
 function carregaListaDespesa() {
-	bd.recuperarTodosRegistros()
+	let despesas = []
+
+	despesas = bd.recuperarTodosRegistros()
+
+	console.log(despesas)
 }
