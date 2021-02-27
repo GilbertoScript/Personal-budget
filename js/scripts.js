@@ -70,7 +70,45 @@ class Bd {
 	}
 
 	pesquisar(despesa) {
+		let despesasFiltradas = []
+
+		despesasFiltradas = this.recuperarTodosRegistros()
+
 		console.log(despesa)
+		console.log(despesasFiltradas)
+
+		// Ano
+		if(despesa.ano != '') {
+			despesasFiltradas = despesasFiltradas.filter(d => d.ano == despesa.ano)
+		}
+
+		// Mês
+		if(despesa.mes != '') {
+			despesasFiltradas = despesasFiltradas.filter(d => d.mes == despesa.mes)
+		}
+
+		// Dia
+		if(despesa.dia != '') {
+			despesasFiltradas = despesasFiltradas.filter(d => d.dia == despesa.dia)
+		}
+
+		// Tipo
+		if(despesa.tipo != '') {
+			despesasFiltradas = despesasFiltradas.filter(d => d.tipo == despesa.tipo)
+		}
+
+		// Descrição
+		if(despesa.descricao != '') {
+			despesasFiltradas = despesasFiltradas.filter(d => d.descricao == despesa.descricao)
+		}
+
+		// Valor
+		if(despesa.valor != '') {
+			despesasFiltradas = despesasFiltradas.filter(d => d.valor == despesa.valor)
+		}
+
+		console.log(despesasFiltradas)
+
 	}
 }
 
@@ -146,7 +184,7 @@ function carregaListaDespesa() {
 	// Selecionando o elemento tbody da tabela
 	let listaDespesa = document.querySelector('#listaDespesas')
 
-	// Percorrendo o array dispesas, listando os arrays de forma dinâmica
+	// Percorrendo o array despesas, listando os arrays de forma dinâmica
 	despesas.forEach((d) => {
 
 		// Criando a linha(tr), do tbody
