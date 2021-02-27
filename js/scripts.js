@@ -64,14 +64,13 @@ class Bd {
 			}
 
 			despesas.push(despesa)
-
 		}
 
 		return despesas
 	}
 
-	pesquisar() {
-		
+	pesquisar(despesa) {
+		console.log(despesa)
 	}
 }
 
@@ -186,16 +185,5 @@ function filtrarDespesa() {
 
 	let despesa = new Despesa(ano, mes, dia, tipo, descricao, valor)
 
-	console.log(despesa)
+	bd.pesquisar(despesa)
 }
-
-/*
-
-<tr>
-    0 = <td>25/03/2021</td>
-    1 = <td>Lazer</td>
-    2 = <td>Cinema</td>
-    3 = <td>300,00</td>
-</tr>
-
-*/
