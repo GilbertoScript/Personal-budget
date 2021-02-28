@@ -10,3 +10,20 @@ nav.navbar {
 	color: white;
 	font-weight: 300;
 }
+
+.div-col-footer {
+	display: flex;
+	justify-content: space-between;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.div-col-footer a {
+	text-decoration: none;
+	color: white;
+}
+
+.div-col-footer a:hover {
+	border-bottom: 2px solid white;
+	transition: .5s;
+}
