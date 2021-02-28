@@ -107,7 +107,7 @@ class Bd {
 			despesasFiltradas = despesasFiltradas.filter(d => d.valor == despesa.valor)
 		}
 
-		console.log(despesasFiltradas)
+		return despesasFiltradas
 
 	}
 }
@@ -174,21 +174,22 @@ function cadastrarDespesa() {
 	
 }
 
-function carregaListaDespesa() {
-	// Criando um array
-	let despesas = []
+function carregaListaDespesa(despesas = [], filtro = false) {
 
-	// Este array recebe um array de objetos, que está sendo pego do bd.
-	despesas = bd.recuperarTodosRegistros()
+	if(despesas.length == 0 && filtro == false) {
+		// Este array recebe um array de objetos, que está sendo pego do bd.
+		despesas = bd.recuperarTodosRegistros()
+	}
 
 	// Selecionando o elemento tbody da tabela
-	let listaDespesa = document.querySelector('#listaDespesas')
+	let listaDespesas = document.querySelector('#listaDespesas')
+	listaDespesas.innerHTML = ''
 
 	// Percorrendo o array despesas, listando os arrays de forma dinâmica
 	despesas.forEach((d) => {
 
 		// Criando a linha(tr), do tbody
-		let linha = listaDespesa.insertRow()
+		let linha = listaDespesas.insertRow()
 
 		// Criando as colunas(td), do tr
 		linha.insertCell(0).innerHTML = `${d.dia} / ${d.mes} / ${d.ano}`
@@ -223,5 +224,7 @@ function filtrarDespesa() {
 
 	let despesa = new Despesa(ano, mes, dia, tipo, descricao, valor)
 
-	bd.pesquisar(despesa)
+	let despesas = bd.pesquisar(despesa)
+	
+	carregaListaDespesa(despesas, true)
 }
