@@ -111,6 +111,10 @@ class Bd {
 		return despesasFiltradas
 
 	}
+
+	remover(id) {
+		localStorage.removeItem(id)
+	}
 }
 
 // Instância da class Bd
@@ -217,10 +221,15 @@ function carregaListaDespesa(despesas = [], filtro = false) {
 		let btn = document.createElement("button")
 		btn.className = 'btn btn-danger'
 		btn.innerHTML = '<i class="fas fa-times"></i>'
-		btn.id = `_id_despesa_: ${d.id}`
+		btn.id = d.id
 		btn.onclick = () => {
 			// Remover a despesa contida na linha correspondente
-			alert('functiona')
+			// Formatar o id, remover string
+
+			// Chamar o método que irá remover a despesa de localStorage
+			bd.remover(btn.id)
+
+			window.location.reload()
 		}
 
 		linha.insertCell(4).append(btn)
