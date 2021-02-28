@@ -63,6 +63,7 @@ class Bd {
 
 			}
 
+			despesa.id = i
 			despesas.push(despesa)
 		}
 
@@ -211,6 +212,18 @@ function carregaListaDespesa(despesas = [], filtro = false) {
 		linha.insertCell(1).innerHTML = d.tipo
 		linha.insertCell(2).innerHTML = d.descricao
 		linha.insertCell(3).innerHTML = d.valor
+
+		// Criando o botão de exclusão
+		let btn = document.createElement("button")
+		btn.className = 'btn btn-danger'
+		btn.innerHTML = '<i class="fas fa-times"></i>'
+		btn.id = `_id_despesa_: ${d.id}`
+		btn.onclick = () => {
+			// Remover a despesa contida na linha correspondente
+			alert('functiona')
+		}
+
+		linha.insertCell(4).append(btn)
 	})
 }
 
