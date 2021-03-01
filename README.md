@@ -33,7 +33,15 @@ Neste Aplicativo de Finanças foram utilizadas as seguintes tecnologias
 
 ### ✈️ Como acessar o Personal budget
 
-🚧🏗️👷‍♂️ ...Em construção... 👷‍♂️🏗️🚧
+Hospedado no Netlify
+
+https://personal-budget-gsj.netlify.app/
+
+Ou então 
+
+```
+Faça o download do repositório e execute index.html
+```
 
 
 ### 📃 Licença
