@@ -6,7 +6,8 @@
 
 Personal Budget ou Orçamento Pessoal, é uma aplicação Web para gerenciar seu orçamento, como o nome diz.<br>
 É uma aplicação que consiste cadastrar uma despesa, descrevendo ela com a data, tipo, descrição e valor, em seguida, o usuário pode fazer uma consulta de todas as despesas que foram cadastradas acessando a página Consulta.<br>
-Na página consulta pode ser feita uma busca detalhada sobre determinada despesa. E também a remoção das mesmas.
+Na página consulta pode ser feita uma busca detalhada sobre determinada despesa. E também a remoção das mesmas.<br><br>
+Um orçamento pessoal ou orçamento doméstico é um plano financeiro que aloca renda pessoal futura em despesas, poupança e pagamento de dívidas. Gastos passados ​​e dívidas pessoais são considerados ao criar um orçamento pessoal.
 
 ### 🎨 Detalhes
 
